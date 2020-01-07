@@ -1,0 +1,55 @@
+[1mdiff --git a/Ball_game.pde b/Ball_game.pde[m
+[1mindex b8bf9a4..d728f04 100644[m
+[1m--- a/Ball_game.pde[m
+[1m+++ b/Ball_game.pde[m
+[36m@@ -84,8 +84,10 @@[m [mvoid draw() {[m
+       text("GAME OVER", 200, 200);[m
+     [m
+     }else{[m
+[31m-        [m
+[32m+[m[32m      funcion_muerte_contorno();[m[41m  [m
+       print("wow");[m
+[32m+[m[32m      println("X:"+x_position_before);[m
+[32m+[m[32m      println("Y:"+y_position_before);[m
+       background(255);[m
+       fill(0);[m
+       textSize(10);[m
+[36m@@ -191,13 +193,13 @@[m [mvoid keyPressed() {[m
+       x_position_before= ball_1.avanzar_izquierda();[m
+     }[m
+   } [m
+[31m-  if ((key=='R')||(key =='r')) {[m
+[32m+[m[32m  /*if ((key=='R')||(key =='r')) {[m
+     create_new_map();[m
+     level=0;[m
+     ball_1= new ball(0, 0);    [m
+     status_game=1;[m
+     velocidad_obstaculos=0;[m
+[31m-  }[m
+[32m+[m[32m  }*/[m
+ }[m
+ void obstaculos() {[m
+   //obstáculos[m
+[36m@@ -216,3 +218,11 @@[m [mvoid obstaculos() {[m
+     }[m
+   }[m
+ }[m
+[32m+[m
+[32m+[m[32mvoid funcion_muerte_contorno(){[m
+[32m+[m[32m  if((y_position_before>400)||(y_position_before<0)){[m
+[32m+[m[32m    status_game=0;[m
+[32m+[m[32m  }else if((x_position_before>480)||(x_position_before<0)){[m
+[32m+[m[32m    status_game=0;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/ball.pde b/ball.pde[m
+[1mindex e4aaeeb..ef131af 100644[m
+[1m--- a/ball.pde[m
+[1m+++ b/ball.pde[m
+[36m@@ -50,4 +50,6 @@[m [mclass ball {[m
+   float bajar() {[m
+     return y_position=y_position-y_speed;[m
+   }[m
+[32m+[m[41m  [m
+[32m+[m[41m  [m
+ }[m

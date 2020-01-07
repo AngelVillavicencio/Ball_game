@@ -84,8 +84,10 @@ void draw() {
       text("GAME OVER", 200, 200);
     
     }else{
-        
+      funcion_muerte_contorno();  
       print("wow");
+      println("X:"+x_position_before);
+      println("Y:"+y_position_before);
       background(255);
       fill(0);
       textSize(10);
@@ -191,13 +193,13 @@ void keyPressed() {
       x_position_before= ball_1.avanzar_izquierda();
     }
   } 
-  if ((key=='R')||(key =='r')) {
+  /*if ((key=='R')||(key =='r')) {
     create_new_map();
     level=0;
     ball_1= new ball(0, 0);    
     status_game=1;
     velocidad_obstaculos=0;
-  }
+  }*/
 }
 void obstaculos() {
   //obstáculos
@@ -214,5 +216,13 @@ void obstaculos() {
 
       velocidad_obstaculos*=-1;
     }
+  }
+}
+
+void funcion_muerte_contorno(){
+  if((y_position_before>400)||(y_position_before<0)){
+    status_game=0;
+  }else if((x_position_before>480)||(x_position_before<0)){
+    status_game=0;
   }
 }

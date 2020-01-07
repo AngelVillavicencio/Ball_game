@@ -50,4 +50,6 @@ class ball {
   float bajar() {
     return y_position=y_position-y_speed;
   }
+  
+  
 }
